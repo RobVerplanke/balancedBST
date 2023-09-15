@@ -1,0 +1,28 @@
+{
+  "name": "balancedbst",
+  "version": "1.0.0",
+  "description": "This assignment is completed as part of The Odin Project curriculum to gain a deeper understanding of algorithms and their usage.",
+  "private" : true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobVerplanke/balancedBST.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobVerplanke/balancedBST/issues"
+  },
+  "homepage": "https://github.com/RobVerplanke/balancedBST#readme",
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
