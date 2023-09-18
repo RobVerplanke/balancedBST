@@ -15,39 +15,39 @@ export default class BinaryTree {
 
   }
 
-  find(value){
+  find(value) {
 
   }
 
-  levelOrder(function){
+  levelOrder(func) {
 
   }
 
-  inOrder(function){
+  inOrder(func) {
 
   }
 
-  preOrder(function){
+  preOrder(func) {
 
   }
 
-  postOrder(function){
+  postOrder(func) {
 
   }
 
-  height(node){
+  height(node) {
 
   }
 
-  depth(node){
+  depth(node) {
 
   }
 
-  isBalanced(tree){
+  isBalanced(tree) {
 
   }
 
-  rebalance(tree){
-    
+  rebalance(tree) {
+
   }
 }
