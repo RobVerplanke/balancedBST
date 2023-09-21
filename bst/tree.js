@@ -1,15 +1,13 @@
-// Remove duplicated elements
-function removeDuplicates(arr) {
-  return arr.filter((element, index) => arr.indexOf(element) === index);
-}
+import { removeDuplicates, sortArray } from './dataFormatter';
 
 export default class BinaryTree {
-  constructor(array) {
+  constructor() {
     this.root = null;
   }
 
   buildTree(arr) {
-
+    const uniqueElementsArray = removeDuplicates(arr);
+    const sortedArray = sortArray(uniqueElementsArray);
   }
 
   insert(value) {
