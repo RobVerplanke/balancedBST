@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/extensions
-import formatData from './dataFormatter.js';
+import formatData from './dataFormatter';
+import Node from './node';
 
 export default class BinaryTree {
   constructor() {
@@ -8,49 +9,59 @@ export default class BinaryTree {
 
   buildTree(arr) {
     const data = formatData(arr);
-  }
+    const newNode = new Node(value);
+    const middleIndex = Math.floor(data.length / 2);
+    const middleElement = data[middleIndex];
+    const leftHalf = data.slice(0, middleIndex);
+    const rightHalf = data.slice(middleIndex);
 
-  insert(value) {
+    this.root = middleElement;
 
-  }
-
-  delete(value) {
-
-  }
-
-  find(value) {
+    if (data.length === 0) return data;
 
   }
 
-  levelOrder(func) {
+//   insert(value) {
 
-  }
+//   }
 
-  inOrder(func) {
+//   delete(value) {
 
-  }
+//   }
 
-  preOrder(func) {
+//   find(value) {
 
-  }
+//   }
 
-  postOrder(func) {
+//   levelOrder(func) {
 
-  }
+//   }
 
-  height(node) {
+//   inOrder(func) {
 
-  }
+//   }
 
-  depth(node) {
+//   preOrder(func) {
 
-  }
+//   }
 
-  isBalanced(tree) {
+//   postOrder(func) {
 
-  }
+//   }
 
-  rebalance(tree) {
+//   height(node) {
 
-  }
-}
+//   }
+
+//   depth(node) {
+
+//   }
+
+//   isBalanced(tree) {
+
+//   }
+
+//   rebalance(tree) {
+
+//   }
+// }
