@@ -1,4 +1,5 @@
-import formatData from './dataFormatter';
+// eslint-disable-next-line import/extensions
+import formatData from './dataFormatter.js';
 
 export default class BinaryTree {
   constructor() {
