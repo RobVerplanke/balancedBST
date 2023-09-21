@@ -1,4 +1,4 @@
-import { removeDuplicates, sortArray } from './dataFormatter';
+import formatData from './dataFormatter';
 
 export default class BinaryTree {
   constructor() {
@@ -6,8 +6,7 @@ export default class BinaryTree {
   }
 
   buildTree(arr) {
-    const uniqueElementsArray = removeDuplicates(arr);
-    const sortedArray = sortArray(uniqueElementsArray);
+    const data = formatData(arr);
   }
 
   insert(value) {
