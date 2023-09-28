@@ -1,69 +1,67 @@
 // eslint-disable-next-line import/extensions
-import Node, { createNode } from './node';
-import formatData from './dataFormatter';
+import createNode from './node';
 
-export default class BinaryTree {
+function buildTree(arr) {
+  if (arr.length === 0) return null;
+
+  const midIndex = Math.floor(arr.length / 2);
+  const leftHalf = arr.slice(0, midIndex);
+  const rightHalf = arr.slice(midIndex);
+
+  const root = createNode(arr[midIndex]);
+
+  root.left = buildTree(leftHalf);
+  root.right = buildTree(rightHalf);
+
+  return root;
+}
+
+export default class Tree {
   constructor(arr) {
-    this.root = null;
-    this.data = formatData(arr);
-  }
-  
-  buildTree(arr) {
-
-    const midIndex = Math.floor(data.length / 2);
-    const midElement = arr[midIndex];
-    
-    const leftHalf = arr.slice(0, midIndex);
-    const rightHalf = arr.slice(midIndex);
-
-    if (arr.length <= 1) return arr;
-
-    buildTree(leftHalf);
-    buildTree(rightHalf);
-
+    this.root = buildTree(arr);
   }
 
-//   insert(value) {
+  //   insert(value) {
+
+  //   }
+
+  //   delete(value) {
+
+  //   }
+
+  //   find(value) {
+
+  //   }
+
+  //   levelOrder(func) {
+
+  //   }
+
+  //   inOrder(func) {
+
+  //   }
+
+  //   preOrder(func) {
+
+  //   }
+
+  //   postOrder(func) {
+
+  //   }
+
+  //   height(node) {
+
+  //   }
+
+  //   depth(node) {
+
+  //   }
+
+  //   isBalanced(tree) {
+
+  //   }
+
+  //   rebalance(tree) {
 
 //   }
-
-//   delete(value) {
-
-//   }
-
-//   find(value) {
-
-//   }
-
-//   levelOrder(func) {
-
-//   }
-
-//   inOrder(func) {
-
-//   }
-
-//   preOrder(func) {
-
-//   }
-
-//   postOrder(func) {
-
-//   }
-
-//   height(node) {
-
-//   }
-
-//   depth(node) {
-
-//   }
-
-//   isBalanced(tree) {
-
-//   }
-
-//   rebalance(tree) {
-
-//   }
-// }
+}

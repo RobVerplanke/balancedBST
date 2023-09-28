@@ -1,11 +1,11 @@
-export default class Node {
-  constructor(data) {
-    this.data = data;
-    this.left = null;
-    this.right = null;
+class Node {
+  constructor(data, left, right) {
+    this.data = (data === null ? null : data);
+    this.left = (left === null ? null : left);
+    this.right = (right === null ? null : right);
   }
 }
 
-export function createNode(value) {
+export default function createNode(value) {
   return new Node(value);
 }
