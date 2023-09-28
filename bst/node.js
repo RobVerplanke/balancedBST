@@ -5,3 +5,7 @@ export default class Node {
     this.right = null;
   }
 }
+
+export function createNode(value) {
+  return new Node(value);
+}
