@@ -1,14 +1,14 @@
 // eslint-disable-next-line import/extensions
-import createNode from './node';
+import createNode from './node.js';
 
 function buildTree(arr) {
   if (arr.length === 0) return null;
 
   const midIndex = Math.floor(arr.length / 2);
-  const leftHalf = arr.slice(0, midIndex);
-  const rightHalf = arr.slice(midIndex);
-
   const root = createNode(arr[midIndex]);
+
+  const leftHalf = arr.slice(0, midIndex);
+  const rightHalf = arr.slice(midIndex + 1);
 
   root.left = buildTree(leftHalf);
   root.right = buildTree(rightHalf);
