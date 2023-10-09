@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import formatData from './bst/dataFormatter.js';
 import Tree from './bst/tree.js';
 

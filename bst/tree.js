@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/extensions
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/extensions */
 import createNode from './node.js';
 
 function buildTree(arr) {
@@ -21,9 +22,24 @@ export default class Tree {
     this.root = buildTree(arr);
   }
 
-  //   insert(value) {
+  // Insert new node
+  insert(value) {
+    this.root = this._insert(this.root, value);
+  }
 
-  //   }
+  _insert(node, value) {
+    if (node === null) return createNode(value);
+
+    if (value < node.data) {
+      node.left = this._insert(node.left, value);
+    } else if (value > node.data) {
+      node.right = this._insert(node.right, value);
+    } else {
+      return console.log('Value already exists.');
+    }
+
+    return node;
+  }
 
   //   delete(value) {
 
