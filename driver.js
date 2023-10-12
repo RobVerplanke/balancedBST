@@ -11,7 +11,7 @@ const formattedData = formatData(data);
 // Create a balanced BST
 const balancedBST = new Tree(formattedData);
 
-// Visualize the tree (provided in assignment)
+// Visualize the tree (code provided in assignment)
 const prettyPrint = (node, prefix = '', isLeft = true) => {
   if (node === null) {
     return;
