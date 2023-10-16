@@ -101,9 +101,32 @@ export default class Tree {
 
     return node;
   }
-  //   levelOrder(func) {
 
-  //   }
+  // Level Order
+
+  levelOrder(func) {
+    // If tree is empty, return empty array
+    if (this.root === null) return [];
+
+    const queue = [this.root];
+    const result = [];
+
+    while (queue.length !== 0) {
+      // visit node
+      const node = queue[0];
+      const nodeValue = node.data;
+
+      // remove root from queue
+      queue.shift();
+
+      // queue its children
+      queue.unshift(node.left);
+      queue.unshift(node.right);
+
+      // push node.data to result array
+      result.push(nodeValue);
+    }
+  }
 
   //   inOrder(func) {
 
