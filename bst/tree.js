@@ -7,12 +7,15 @@ import createNode from './node.js';
 function buildTree(arr) {
   if (arr.length === 0) return null;
 
+  // Define middle point
   const midIndex = Math.floor(arr.length / 2);
   const root = createNode(arr[midIndex]);
 
+  // Create left and right part
   const leftHalf = arr.slice(0, midIndex);
   const rightHalf = arr.slice(midIndex + 1);
 
+  // Recursivly work down the left and right parts
   root.left = buildTree(leftHalf);
   root.right = buildTree(rightHalf);
 
@@ -34,6 +37,7 @@ export default class Tree {
     // If value does not excists in the tree
     if (node === null) return createNode(value);
 
+    // Decide wich tree branch to work with
     if (value < node.data) {
       node.left = this._insert(node.left, value);
     } else if (value > node.data) {
@@ -79,6 +83,7 @@ export default class Tree {
   _getMinValue(node) {
     let minValue = node.data;
 
+    // Select the most left node
     while (node.left !== null) {
       minValue = node.left.data;
       node = node.left;
@@ -96,6 +101,7 @@ export default class Tree {
   _find(node, value) {
     if (node === null) return node;
 
+    // Work down the tree
     if (value < node.data) return this._find(node.left, value);
     if (value > node.data) return this._find(node.right, value);
 
@@ -104,7 +110,7 @@ export default class Tree {
 
   // Level Order
 
-  levelOrder(func) {
+  levelOrder(callback) {
     // If tree is empty, return empty array
     if (this.root === null) return [];
 
@@ -112,20 +118,23 @@ export default class Tree {
     const result = [];
 
     while (queue.length !== 0) {
-      // visit node
       const node = queue[0];
-      const nodeValue = node.data;
 
-      // remove root from queue
+      // Excecute callback function, if there is any
+      if (callback) callback(node.data);
+
+      // push value to result array
+      result.push(node.data);
+
+      // remove current node from queue
       queue.shift();
 
-      // queue its children
-      queue.unshift(node.left);
-      queue.unshift(node.right);
-
-      // push node.data to result array
-      result.push(nodeValue);
+      // If there are children, put them in the queue in the right order
+      if (node.left !== null) queue.unshift(node.left);
+      if (node.right !== null) queue.unshift(node.right);
     }
+
+    return result;
   }
 
   //   inOrder(func) {
