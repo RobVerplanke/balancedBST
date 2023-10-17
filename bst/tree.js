@@ -120,7 +120,7 @@ export default class Tree {
     while (queue.length !== 0) {
       const node = queue[0];
 
-      // Excecute callback function, if there is any
+      // Excecute callback function, if there is one
       if (callback) callback(node.data);
 
       // push value to result array
@@ -130,24 +130,44 @@ export default class Tree {
       queue.shift();
 
       // If there are children, put them in the queue in the right order
-      if (node.left !== null) queue.unshift(node.left);
-      if (node.right !== null) queue.unshift(node.right);
+      if (node.left) queue.unshift(node.left);
+      if (node.right) queue.unshift(node.right);
     }
 
     return result;
   }
 
-  //   inOrder(func) {
+  // Preorder DLR
+  preOrder(callback) {
+    const result = [];
 
-  //   }
+    // Helper function for recursion
+    function recursivePreorder(node) {
+      // Excecute callback function, if there is one
+      if (callback) callback(node.data);
 
-  //   preOrder(func) {
+      // push value of rootnode to result array
+      result.push(node.data);
 
-  //   }
+      // Recusrivly traverse left subtree
+      if (node.left) recursivePreorder(node.left);
 
-  //   postOrder(func) {
+      // Recusrivly traverse right subtree
+      if (node.right) recursivePreorder(node.right);
+    }
 
-  //   }
+    recursivePreorder(this.root);
+  }
+
+  // Inorder LDR
+  inOrder(callback) {
+
+  }
+
+  // Postorder LRD
+  postOrder(callback) {
+
+  }
 
   //   height(node) {
 
