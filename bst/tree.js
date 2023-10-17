@@ -142,31 +142,74 @@ export default class Tree {
     const result = [];
 
     // Helper function for recursion
-    function recursivePreorder(node) {
+    function recursivePreOrder(node) {
       // Excecute callback function, if there is one
       if (callback) callback(node.data);
 
-      // push value of rootnode to result array
+      // push value of current node to result array
       result.push(node.data);
 
       // Recusrivly traverse left subtree
-      if (node.left) recursivePreorder(node.left);
+      if (node.left) recursivePreOrder(node.left);
 
       // Recusrivly traverse right subtree
-      if (node.right) recursivePreorder(node.right);
+      if (node.right) recursivePreOrder(node.right);
     }
+    recursivePreOrder(this.root);
 
-    recursivePreorder(this.root);
+    return result;
   }
 
   // Inorder LDR
   inOrder(callback) {
+    const result = [];
 
+    // Helper function for recursion
+    function recursiveInOrder(node) {
+      // Return at empty node
+      if (node === null) return;
+
+      // Excecute callback function, if there is one
+      if (callback) callback(node.data);
+
+      // Recusrivly traverse left subtree
+      if (node.left) recursiveInOrder(node.left);
+
+      // push value of current node to result array
+      result.push(node.data);
+
+      // Recusrivly traverse right subtree
+      if (node.right) recursiveInOrder(node.right);
+    }
+    recursiveInOrder(this.root);
+
+    return result;
   }
 
   // Postorder LRD
   postOrder(callback) {
+    const result = [];
 
+    // Helper function for recursion
+    function recursivePostOrder(node) {
+      // Return at empty node
+      if (node === null) return;
+
+      // Excecute callback function, if there is one
+      if (callback) callback(node.data);
+
+      // Recusrivly traverse right subtree
+      if (node.left) recursivePostOrder(node.left);
+
+      // Recusrivly traverse left subtree
+      if (node.right) recursivePostOrder(node.right);
+
+      // push value of current node to result array
+      result.push(node.data);
+    }
+    recursivePostOrder(this.root);
+
+    return result;
   }
 
   //   height(node) {
