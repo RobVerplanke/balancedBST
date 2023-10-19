@@ -215,39 +215,31 @@ export default class Tree {
 
   // Height of a node
 
-  // height(node) {
-  //   // Initial height
-  //   const leftHeight = -1;
-  //   const rightHeight = -1;
-
-  //   return _height(node, leftHeight, rightHeight);
-  // }
-
-  // _height(node, leftHeight, rightHeight) {
-  //   if (node === null) return -1; // Remove last edge
-
-  //   // Add a new level of height
-  //   leftHeight++;
-  //   rightHeight++;
-
-  //   // Find height of left and right subtree recursivly
-  //   this._height(node.left, leftHeight, rightHeight);
-  //   this._height(node.right, leftHeight, rightHeight);
-
-  //   // Get largest height of the two + 1 edge to the given node
-  //   return Math.max(leftHeight, rightHeight) + 1;
-  // }
-
   height(node = this.root) {
     if (node === null) return -1;
+
     const leftHeight = this.height(node.left);
     const rightHeight = this.height(node.right);
+
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
-  //   depth(node) {
+  // Depth of a node
+  depth(value) {
+    const node = this.root;
+    const level = 0;
+    return this._depth(value, node, level);
+  }
 
-  //   }
+  _depth(value, node, level) {
+    if (node === null) return -1;
+    if (value === node.data) return level;
+
+    if (value < node.data) return this._depth(value, node.left, level + 1);
+    if (value > node.data) return this._depth(value, node.right, level + 1);
+
+    return -1; // Value not found
+  }
 
   //   isBalanced(tree) {
 
