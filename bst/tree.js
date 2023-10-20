@@ -1,8 +1,10 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
+import formatData from './dataFormatter';
 import createNode from './node.js';
 
 function buildTree(arr) {
@@ -35,10 +37,10 @@ export default class Tree {
   }
 
   _insert(node, value) {
-    // If value does not excists in the tree
+    // If value does not excist in the tree, create new node
     if (node === null) return createNode(value);
 
-    // Decide wich tree branch to work with
+    // Recursive call
     if (value < node.data) {
       node.left = this._insert(node.left, value);
     } else if (value > node.data) {
@@ -241,11 +243,27 @@ export default class Tree {
     return -1; // Value not found
   }
 
-  //   isBalanced(tree) {
+  isBalanced(node = this.root) {
+    if (node === null) return true;
 
-  //   }
+    // Loop through left and right subtree
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
 
-  //   rebalance(tree) {
+    // Check if difference is not > 2
+    const diff = Math.abs(leftHeight - rightHeight);
 
-//   }
+    if (diff > 1) return false;
+
+    return true;
+  }
+
+  rebalance(tree) {
+    if (tree === null) return tree;
+
+    const newData = this.levelOrder(tree);
+    this.root = this.buildTree(formatData(newData));
+
+    return this.root;
+  }
 }
