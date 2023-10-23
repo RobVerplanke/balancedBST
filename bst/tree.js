@@ -4,7 +4,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
-import formatData from './dataFormatter';
+import formatData from './dataFormatter.js';
 import createNode from './node.js';
 
 function buildTree(arr) {
@@ -133,8 +133,8 @@ export default class Tree {
       queue.shift();
 
       // If there are children, put them in the queue in the right order
-      if (node.left) queue.unshift(node.left);
       if (node.right) queue.unshift(node.right);
+      if (node.left) queue.unshift(node.left);
     }
 
     return result;
