@@ -133,8 +133,8 @@ export default class Tree {
       queue.shift();
 
       // If there are children, put them in the queue in the right order
-      if (node.right) queue.unshift(node.right);
-      if (node.left) queue.unshift(node.left);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
 
     return result;
