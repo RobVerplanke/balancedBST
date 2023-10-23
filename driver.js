@@ -12,6 +12,54 @@ const formattedData = formatData(data);
 // Create a balanced BST
 const balancedBST = new Tree(formattedData);
 
+// Show tree
 prettyPrint(balancedBST.root);
+
+// Confirm tree is balanced
 console.log(`Balanced: ${balancedBST.isBalanced()}`);
-console.log(`Level-order: ${balancedBST.levelOrder()}`);
+
+// Print tree in levelorder
+console.log(`Levelorder: ${balancedBST.levelOrder()}`);
+
+// Print tree in preorder
+console.log(`Preorder: ${balancedBST.preOrder()}`);
+
+// Print tree in postorder
+console.log(`Postorder: ${balancedBST.postOrder()}`);
+
+// Print tree in inorder
+console.log(`Inorder: ${balancedBST.inOrder()}`);
+
+// Unbalance the tree
+balancedBST.insert(110);
+balancedBST.insert(120);
+balancedBST.insert(130);
+balancedBST.insert(140);
+
+// Confirm tree is UNbalanced
+console.log(`Balanced: ${balancedBST.isBalanced()}`);
+
+// Show tree
+prettyPrint(balancedBST.root);
+
+// Rebalance tree
+console.log('\n balancing tree...\n');
+balancedBST.rebalance();
+
+// Show tree
+prettyPrint(balancedBST.root);
+
+// Confirm tree is balanced
+console.log(`Balanced: ${balancedBST.isBalanced()}`);
+
+// Print tree in levelorder
+console.log(`Levelorder: ${balancedBST.levelOrder()}`);
+
+// Print tree in preorder
+console.log(`Preorder: ${balancedBST.preOrder()}`);
+
+// Print tree in postorder
+console.log(`Postorder: ${balancedBST.postOrder()}`);
+
+// Print tree in inorder
+console.log(`Inorder: ${balancedBST.inOrder()}`);

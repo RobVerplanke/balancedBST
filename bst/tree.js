@@ -37,7 +37,7 @@ export default class Tree {
   }
 
   _insert(node, value) {
-    // If value does not excist in the tree, create new node
+    // If value does not exist in the tree, create new node
     if (node === null) return createNode(value);
 
     // Recursive call
@@ -48,7 +48,6 @@ export default class Tree {
     } else {
       return console.log('Value already exists.');
     }
-
     return node;
   }
 
@@ -258,11 +257,9 @@ export default class Tree {
     return true;
   }
 
-  rebalance(tree) {
-    if (tree === null) return tree;
-
-    const newData = this.levelOrder(tree);
-    this.root = this.buildTree(formatData(newData));
+  rebalance() {
+    const newData = this.levelOrder();
+    this.root = buildTree(formatData(newData));
 
     return this.root;
   }
